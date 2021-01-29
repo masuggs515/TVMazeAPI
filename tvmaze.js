@@ -21,7 +21,7 @@ async function searchShows(query) {
   // TODO: Make an ajax request to the searchShows api.  Remove
   // hard coded data.
 const noImg = 'https://cdn-5fcbf5c4c1ac1a221c18568d.closte.com/wp-content/themes/ryse/assets/images/no-image/No-Image-Found-400x264.png';
-  const searchURL = 'http://api.tvmaze.com/search/shows'
+  const searchURL = 'https://cors-anywhere.herokuapp.com/http://api.tvmaze.com/search/shows'
   const response = await axios.get(searchURL, { params: { q: query } });
   let shows = response.data.map(show => {
     return {
@@ -87,7 +87,7 @@ $("#search-form").on("submit", async function handleSearch(evt) {
  */
 
 async function getEpisodes(id) {
-  const result = await axios.get(`http://api.tvmaze.com/shows/${id}/episodes`);
+  const result = await axios.get(`https://cors-anywhere.herokuapp.com/http://api.tvmaze.com/shows/${id}/episodes`);
   console.log(result.data)
   let episode = result.data.map(show => ({
     
